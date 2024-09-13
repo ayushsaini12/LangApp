@@ -2,12 +2,13 @@ import Link from "next/link"
 import { Button } from "./ui/button"
 import Image from "next/image"
 import { InfinityIcon } from "lucide-react"
+import { courses } from "@/db/schema"
 
 type Props = {
-    activeCourse: {imageSrc: string, title:string},
-    hearts: number,
-    points: number,
-    hasActiveSubscription : boolean,
+    activeCourse: typeof courses.$inferSelect;
+    hearts: number;
+    points: number;
+    hasActiveSubscription : boolean;
 }
 
 export const UserProgess = ({activeCourse, hearts, points, hasActiveSubscription}: Props)=>{
