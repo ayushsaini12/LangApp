@@ -20,10 +20,10 @@ export const List = ({courses, activeCourseId}: ListProps) =>{
             return ;
         }
 
-        if (id === activeCourseId) {
-            return router.push(`/courses/${id}`);
+        // if (id === activeCourseId) {
+        //     return router.push(`/courses/${id}`);
             
-        }
+        // }
 
         startTransition(()=>{
             upseartUserProgress(id)
