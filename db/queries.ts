@@ -28,13 +28,24 @@ export const getUserProgress= cache(async ()=>{
 })  
 
 
-export const getCourseByID = cache(async(courseId: number)=>{
+export const getCourseByID = cache(async (courseId: number) => {
   const data = await db.query.courses.findFirst({
-    where: eq(courses.id, courseId)
-  })
+    where: eq(courses.id, courseId),
+    with: {
+      units: {
+        orderBy: (units, { asc }) => [asc(units.order)],
+        with: {
+          lessons: {
+            orderBy: (lessons, { asc }) => [asc(lessons.order)],
+          },
+        },
+      },
+    },
+  });
 
   return data;
-})
+});
+
 
 export const getUnits = cache(async () => {
   const { userId } = auth();
