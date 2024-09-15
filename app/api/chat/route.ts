@@ -24,10 +24,10 @@ export async function POST(req: Request) {
     }
 
     return NextResponse.json(response.choices[0].message);
-  } catch (error: any) {
+  } catch (error) {
     console.error('Error in OpenAI request:', error);
     return NextResponse.json(
-      { error: error.message || 'An error occurred while processing your request' },
+      { error: error instanceof Error ? error.message : 'An error occurred while processing your request' },
       { status: 500 }
     );
   }

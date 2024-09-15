@@ -1,8 +1,7 @@
 "use client";
 import { courses, userProgress } from "@/db/schema";
 import { Card } from "./card";
-import { useRouter } from "next/navigation";
-import { startTransition, useTransition } from "react";
+import {  useTransition } from "react";
 import { upsertUserProgress } from "@/actions/user-progess";
 import { toast } from "sonner";
 
@@ -12,7 +11,6 @@ type ListProps = {
 };
 
 export const List = ({courses, activeCourseId}: ListProps) =>{
-    const router = useRouter();
     const [pending, startTransition] = useTransition();
 
     const onClick = (id: number)=>{
