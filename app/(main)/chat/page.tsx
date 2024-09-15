@@ -5,10 +5,15 @@ import { Textarea } from "@/components/ui/textarea";
 import {useChat} from "ai/react"
 import { Send } from "lucide-react";
 import React, { useRef } from "react";
+import { toast } from "sonner";
 
 const Chat = () =>{
 
-    const {messages, input, handleInputChange, handleSubmit} = useChat()
+    const {messages, input, handleInputChange, handleSubmit} = useChat({
+        onError: (error) => {
+            toast.error(error.message || 'An error occurred during the chat');
+        },
+    })
     const formRef = useRef<HTMLFormElement>(null);
     function handleKeyDown(e: React.KeyboardEvent<HTMLTextAreaElement>) {
         if (e.key === "Enter" && !e.shiftKey) {

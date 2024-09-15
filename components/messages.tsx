@@ -1,6 +1,6 @@
 import { Message as MessageType } from "ai"
-import { Bot, User } from "lucide-react";
 import { Card, CardHeader } from "./ui/card";
+import Image from "next/image";
 
 export default function Message({message}: {message:MessageType}){
     const {role, content} = message;
@@ -9,7 +9,7 @@ export default function Message({message}: {message:MessageType}){
         return(
             <div className="flex flex-col gap-3 p-6 whitespace-pre-wrap">
                 <div className="flex items-center gap-2 ">
-                    <Bot />
+                    <Image alt="assistant" src="/robot.svg" width={24} height={24} />
                     Assistant:
                 </div>
                 {content}
@@ -21,7 +21,7 @@ export default function Message({message}: {message:MessageType}){
         <Card className="whitespace-pre-wrap" > 
             <CardHeader>
                 <div className="flex items-center gap-2">
-                    <User size={36} />
+                <Image alt="user" src="/mascot.svg" width={24} height={24} />
                     {content}
                 </div>
             </CardHeader>
