@@ -5,15 +5,10 @@ import { Textarea } from "@/components/ui/textarea";
 import {useChat} from "ai/react"
 import { Send } from "lucide-react";
 import React, { useRef } from "react";
-import { toast } from "sonner";
 
 const Chat = () =>{
 
-    const {messages, input, handleInputChange, handleSubmit: originalHandleSubmit} = useChat({
-        onError: (error) => {
-            toast.error(error.message || 'An error occurred during the chat');
-        },
-    })
+    const {messages, input, handleInputChange, handleSubmit} = useChat()
     const formRef = useRef<HTMLFormElement>(null);
     function handleKeyDown(e: React.KeyboardEvent<HTMLTextAreaElement>) {
         if (e.key === "Enter" && !e.shiftKey) {
@@ -21,19 +16,6 @@ const Chat = () =>{
         formRef.current?.requestSubmit();
         }
     }
-
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        try {
-            await originalHandleSubmit(e);
-        } catch (error) {
-            if (error instanceof Error) {
-                toast.error(error.message);
-            } else {
-                toast.error('An error occurred while sending the message');
-            }
-        }
-    };
 
     return (
         <div className=" h-full w-full ">
