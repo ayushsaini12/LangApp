@@ -168,6 +168,7 @@ CLERK_ADMIN_IDS="user_xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 OPENAI_API_KEY:sk-proj-xxxxxxxxxxxxxxxx
 
 ```
+
 5. Obtain Clerk Authentication Keys
 
    1. **Source**: Clerk Dashboard or Settings Page
@@ -176,7 +177,7 @@ OPENAI_API_KEY:sk-proj-xxxxxxxxxxxxxxxx
       - Navigate to the dashboard or settings page.
       - Look for the section related to authentication keys.
       - Copy the `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` and `CLERK_SECRET_KEY` provided in that section.
-     
+
 6. Retrieve Neon Database URI
 
    1. **Source**: Database Provider (e.g., Neon, PostgreSQL)
@@ -229,10 +230,17 @@ This command uses `npm` to execute the Typescript file (`scripts/prod.ts`) and w
 
 Once the script completes, check your database to ensure that the challenges data has been successfully seeded.
 
-
 14. Now app is fully configured 👍 and you can start using this app using either one of `npm run dev` or `yarn dev`.
 
 **NOTE:** Please make sure to keep your API keys and configuration values secure and do not expose them publicly.
+
+## :camera: Screenshots
+
+![Modern UI/UX](/.github/images/img1.png "Modern UI/UX")
+
+![Quests](/.github/images/img2.png "Quests")
+
+![Shop](/.github/images/img3.png "Shop")
 
 ## :gear: Tech Stack
 
@@ -252,4 +260,3 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
